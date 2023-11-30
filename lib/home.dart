@@ -21,8 +21,9 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color.fromARGB(239, 255, 255, 255),
       appBar: AppBar(
-        backgroundColor: Colors.blue,
+        backgroundColor: Colors.blueAccent,
         title: const Text('Rest API'),
         centerTitle: true,
       ),
@@ -30,9 +31,18 @@ class _HomeScreenState extends State<HomeScreen> {
         itemCount: users.length,
         itemBuilder: (context, index) {
           final user = users[index];
-          return ListTile(
-            title: Text(user.loginDetails.username),
-            subtitle: Text(user.loginDetails.password),
+          return Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 7, vertical: 7),
+            child: Container(
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(20),
+              ),
+              child: ListTile(
+                title: Text(user.fullname),
+                subtitle: Text(user.location.street.number),
+              ),
+            ),
           );
         },
       ),

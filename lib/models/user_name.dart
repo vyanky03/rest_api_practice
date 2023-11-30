@@ -8,4 +8,12 @@ class UserName {
     required this.first,
     required this.last,
   });
+
+  factory UserName.fromMap(Map<String, dynamic> json) {
+    return UserName(
+      first: json['first'],
+      title: json['title'],
+      last: json['last'],
+    );
+  }
 }
